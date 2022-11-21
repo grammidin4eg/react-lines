@@ -1,0 +1,145 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    border: 1px solid gray;
+    min-width: 500px;
+}
+
+/*шапка*/
+header {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  background-color: antiquewhite;
+}
+
+.score {
+  font-size: 26px;
+  font-family: 'Rubik Distressed', cursive;
+}
+
+/* Модальное окно */
+#modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .modal__content {
+    width: 400px;
+    background-color: #fff;
+    text-align: center;
+    padding: 12px;
+    background-color: antiquewhite;
+  }
+
+  .modal__text {
+    font-family: 'Rubik Distressed', cursive;
+    font-size: 90px;
+    color: orange;
+  }
+
+  .modal__button {
+    padding: 10px 30px;
+    border-radius: 24px;
+    border: 1px solid orange;
+    background-color: bisque;
+    transition: border-color 0.5s;
+  }
+
+  .modal__button:hover {
+    cursor: pointer;
+    border-color: blue;
+  }
+  
+  #modal.hide-modal {
+    display: none;
+  }
+
+  /* сетка */
+  #root {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+  }
+
+  .cell {
+    height: 50px;
+    width: 50px;
+    border: 1px solid gray;
+    background-color: aliceblue;
+    box-sizing: border-box;
+  }
+
+  .type-ball.cell::after {
+    content: '';
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+  }
+
+  .type-small.cell::after {
+    content: '';
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 14px;
+    left: 14px;       
+  }
+
+  .color-red.cell::after {
+    background: -webkit-radial-gradient(30% 30%, circle, red, #000);
+    background: -moz-radial-gradient(30% 30%, circle, red, #000);
+    background: radial-gradient(30% 30%, circle, red, #000);
+  }
+
+  .color-green.cell::after  {
+    background: -webkit-radial-gradient(30% 30%, circle, #05f105, #000);
+    background: -moz-radial-gradient(30% 30%, circle, #05f105, #000);
+    background: radial-gradient(30% 30%, circle, #05f105, #000);
+  }
+
+  .color-cyan.cell::after  {
+    background: -webkit-radial-gradient(30% 30%, circle, cyan, #000);
+    background: -moz-radial-gradient(30% 30%, circle, cyan, #000);
+    background: radial-gradient(30% 30%, circle, cyan, #000);
+  }
+
+  .color-purple.cell::after  {
+    background: -webkit-radial-gradient(30% 30%, circle, #e508e5, #000);
+    background: -moz-radial-gradient(30% 30%, circle, #e508e5, #000);
+    background: radial-gradient(30% 30%, circle, #e508e5, #000);
+  }
+
+  .color-yellow.cell::after  {
+    background: -webkit-radial-gradient(30% 30%, circle, yellow, #000);
+    background: -moz-radial-gradient(30% 30%, circle, yellow, #000);
+    background: radial-gradient(30% 30%, circle, yellow, #000);
+}
+
+  .cell.selected {
+      background-color: #0069ff6e;
+  }
