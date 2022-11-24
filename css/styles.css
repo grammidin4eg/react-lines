@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 body {
     display: flex;
     flex-direction: column;
@@ -96,6 +99,7 @@ header {
     position: relative;
     top: 4px;
     left: 4px;
+    cursor: pointer;
   }
 
   .type-small.cell::after {
@@ -107,7 +111,7 @@ header {
     width: 20px;
     position: relative;
     top: 14px;
-    left: 14px;       
+    left: 14px;   
   }
 
   .color-red.cell::after {
@@ -142,4 +146,5 @@ header {
 
   .cell.selected {
       background-color: #0069ff6e;
+      cursor: pointer;
   }
