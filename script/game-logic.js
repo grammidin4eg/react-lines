@@ -1,12 +1,14 @@
 const STATE = {
     WAITING: 1,
-    SELECTED: 2
+    SELECTED: 2,
+    STOP: 3
 }
 
-let gameState = STATE.WAITING;
+let gameState = STATE.STOP;
 
 function startGame() {
     console.log('start game');
+    clearScore();
     createModel();
     for (let i = 0; i<5; i++) {
         const place = getRandomPlace();
@@ -29,15 +31,19 @@ function nextStep() {
     gameState = STATE.WAITING;
     selectedBall = false;
     clearSelected();
-    growUpBalls();
+    addScore(growUpBalls());
     genSmallBalls();
+    if (calcFreeCells() <= 3) {
+        gameState = STATE.STOP;
+        showModal();
+    }
 }
 
 function handleCellClick(event, cell) {
-    console.log('!!! click', event, cell.type);
     if ((gameState === STATE.SELECTED) 
         && (cell.type === TYPES.NONE || cell.type === TYPES.SMALL_BALL) && cell.selected) {
         moveBallTo(selectedBall, cell.x, cell.y);
+        addScore(checkLine(cell));
         nextStep();
     } else if (cell.type === TYPES.BALL) {
         if (cell.selected) {

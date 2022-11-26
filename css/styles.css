@@ -24,7 +24,7 @@ header {
   background-color: antiquewhite;
 }
 
-.score {
+#score {
   font-size: 26px;
   font-family: 'Rubik Distressed', cursive;
 }

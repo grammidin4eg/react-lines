@@ -6,3 +6,7 @@ modalButton.addEventListener('click', () => {
     modal.className='hide-modal';
     startGame();
 });
+
+function showModal() {
+    modal.className='opened-modal';
+}
